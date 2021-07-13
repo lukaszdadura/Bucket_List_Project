@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 public class UserAchievement {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
     private LocalDateTime created;

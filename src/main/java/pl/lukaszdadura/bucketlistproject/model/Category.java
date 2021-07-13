@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Data
 @Builder
@@ -23,4 +24,5 @@ public class Category {
     private String type;
     @NotNull
     private Integer points;
+
 }
