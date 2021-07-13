@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
@@ -24,7 +25,7 @@ public class Achievement {
     private String name;
     private String description;
     @OneToMany(mappedBy = "achievement", cascade = CascadeType.REMOVE)
-    private List<UserAchievement> userAchievementList;
+    private Set<UserAchievement> userAchievementList;
 
 
 }
