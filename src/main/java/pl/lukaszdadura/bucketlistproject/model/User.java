@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Data
 @Builder
@@ -35,5 +36,7 @@ public class User {
     @NotEmpty(message = "Please provide your password")
     private String password;
     private boolean admin;
+    @OneToMany(mappedBy = "user",cascade = CascadeType.REMOVE)
+    private List<UserAchievement> userAchievementList;
 
 }
