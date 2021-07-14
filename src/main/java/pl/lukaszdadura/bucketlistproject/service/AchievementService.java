@@ -1,9 +1,11 @@
 package pl.lukaszdadura.bucketlistproject.service;
 
 import pl.lukaszdadura.bucketlistproject.model.Achievement;
+import pl.lukaszdadura.bucketlistproject.model.Category;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 public interface AchievementService {
 

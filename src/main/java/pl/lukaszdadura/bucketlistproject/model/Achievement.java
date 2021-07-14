@@ -23,10 +23,8 @@ public class Achievement {
     private Long id;
     private String name;
     private String description;
-    @ToString.Exclude
     @OneToMany(mappedBy = "achievement", cascade = CascadeType.REMOVE)
     private Set<UserAchievement> userAchievementList;
-    @ToString.Exclude
     @OneToMany
     private List<Category> categoryList = new ArrayList<>();
 
