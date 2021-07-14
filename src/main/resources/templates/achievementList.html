@@ -36,7 +36,7 @@
             <div class="masthead-content">
                 <div class="container px-5">
                     <h1 class="masthead-heading mb-0">Bucket List Project</h1>
-                    <h2 class="masthead-subheading mb-0">Share all your achievements</h2>
+                    <h2 class="masthead-subheading mb-0">Latest achievements</h2>
                     <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
                 </div>
             </div>
@@ -48,7 +48,8 @@
 
 
         <!-- Content section 1-->
-        <section id="scroll">
+
+        <section id="scroll" th:each="achievement, achievementStat : ${achievementList}">
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6 order-lg-2">
@@ -56,8 +57,8 @@
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
-                            <h2 class="display-4">For those about to rock...</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                            <h2 class="display-4" th:text="${achievement.name}"></h2>
+                            <p th:text="${achievement.description}"></p>
                         </div>
                     </div>
                 </div>

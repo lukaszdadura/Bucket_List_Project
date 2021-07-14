@@ -35,13 +35,13 @@ public class BucketListController {
         return "home3";
     }
 
-    @GetMapping("/achievements")
-    public String achievements(Model model) {
-        List<Achievement> achievement = achievementService.findAllAchievements();
-        Optional<Achievement> achievement1 = achievementService.findAchievementById(1L);
-        model.addAttribute("achievements", achievement);
-        model.addAttribute("achi", achievement1);
-        return "home";
-    }
+//    @GetMapping("/achievements")
+//    public String achievements(Model model) {
+//        List<Achievement> achievement = achievementService.findAllAchievements();
+//        Optional<Achievement> achievement1 = achievementService.findAchievementById(1L);
+//        model.addAttribute("achievements", achievement);
+//        model.addAttribute("achi", achievement1);
+//        return "home";
+//    }
 
 }
