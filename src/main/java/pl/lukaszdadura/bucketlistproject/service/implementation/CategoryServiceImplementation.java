@@ -1,6 +1,7 @@
 package pl.lukaszdadura.bucketlistproject.service.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pl.lukaszdadura.bucketlistproject.model.Category;
 import pl.lukaszdadura.bucketlistproject.repository.CategoryRepository;
 import pl.lukaszdadura.bucketlistproject.service.CategoryService;
@@ -8,6 +9,7 @@ import pl.lukaszdadura.bucketlistproject.service.CategoryService;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CategoryServiceImplementation implements CategoryService {
 
     private final CategoryRepository categoryRepository;

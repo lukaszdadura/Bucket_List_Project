@@ -14,22 +14,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http
-//                .authorizeRequests()
-//                .anyRequest()
-//                .permitAll()
-//                .and().csrf().disable();
                 .authorizeRequests()
-                .antMatchers("/", "info", "style.css").permitAll()
-                .antMatchers("/admin/**").hasAnyAuthority(Roles.ADMIN)
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
+                .anyRequest()
                 .permitAll()
-                .and()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .permitAll();
+                .and().csrf().disable();
+//                .authorizeRequests()
+//                .antMatchers("/", "info", "style.css").permitAll()
+//                .antMatchers("/admin/**").hasAnyAuthority(Roles.ADMIN)
+//                .anyRequest().authenticated()
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+//                .permitAll();
 
     }
 }

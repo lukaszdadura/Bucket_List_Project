@@ -1,6 +1,7 @@
 package pl.lukaszdadura.bucketlistproject.service.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pl.lukaszdadura.bucketlistproject.model.Achievement;
 import pl.lukaszdadura.bucketlistproject.repository.AchievementRepository;
 import pl.lukaszdadura.bucketlistproject.service.AchievementService;
@@ -8,6 +9,7 @@ import pl.lukaszdadura.bucketlistproject.service.AchievementService;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class AchievementServiceImplementation implements AchievementService {
 
     private final AchievementRepository achievementRepository;

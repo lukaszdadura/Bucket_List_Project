@@ -1,6 +1,7 @@
 package pl.lukaszdadura.bucketlistproject.service.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pl.lukaszdadura.bucketlistproject.model.User;
 import pl.lukaszdadura.bucketlistproject.repository.UserRepository;
 import pl.lukaszdadura.bucketlistproject.service.UserService;
@@ -8,6 +9,7 @@ import pl.lukaszdadura.bucketlistproject.service.UserService;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class UserServiceImplementation implements UserService {
 
     private final UserRepository userRepository;
