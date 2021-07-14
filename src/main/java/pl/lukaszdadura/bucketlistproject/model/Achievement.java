@@ -20,14 +20,12 @@ public class Achievement {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "achievement_id")
     private Long id;
     private String name;
     private String description;
     @OneToMany(mappedBy = "achievement", cascade = CascadeType.REMOVE)
     private Set<UserAchievement> userAchievementList;
     @OneToMany
-    @JoinColumn(name = "achievement_id")
     private List<Category> categoryList = new ArrayList<>();
 
 }

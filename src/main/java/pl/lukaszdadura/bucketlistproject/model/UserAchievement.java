@@ -1,6 +1,7 @@
 package pl.lukaszdadura.bucketlistproject.model;
 
 import lombok.*;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -23,11 +24,11 @@ public class UserAchievement {
     @NotNull
     private LocalDateTime created;
     private LocalDateTime dueDate;
-    private Byte[] evidence;
+    @Type(type="org.hibernate.type.BlobType")
+    @Lob
+    private byte[] evidence;
     @ManyToOne
-    @JoinColumn(name = "user_id")
     private User user;
     @ManyToOne
-    @JoinColumn(name = "achievement_id")
     private Achievement achievement;
 }
