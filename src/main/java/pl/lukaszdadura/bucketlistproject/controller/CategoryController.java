@@ -28,7 +28,7 @@ public class CategoryController {
     public String getCategoryAdd(Model model) {
         Category category = new Category();
         model.addAttribute("category", category);
-        return "categoryAdd";
+        return "admin/categoryAdd";
     }
 
     @PostMapping("/categoryadd")
