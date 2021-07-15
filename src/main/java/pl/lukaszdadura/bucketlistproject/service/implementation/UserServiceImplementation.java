@@ -78,12 +78,8 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public User registerUser(RegisterDto dto) throws RegisterFailedException {
-        if (!dto.getPassword().equals(dto.getConfirm_password()) || dto.getPassword() == null || dto.getPassword().isEmpty()
-                || dto.getConfirm_password() == null || dto.getConfirm_password().isEmpty()) {
-            throw new RegisterFailedException("Password incorrect");
-        }
         Role userRole = roleRepository.findByName("ROLE_USER");
-        User user = new User(dto.getName(), dto.getUsername(), passwordEncoder.encode(dto.getPassword()), 1, new HashSet<Role>(Arrays.asList(userRole)));
+        User user = new User(dto.getUsername(), dto.getEmail(), passwordEncoder.encode(dto.getPassword()), 1, new HashSet<Role>(Arrays.asList(userRole)));
         return userRepository.save(user);
     }
 }

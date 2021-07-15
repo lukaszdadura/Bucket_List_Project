@@ -41,9 +41,9 @@ public class User extends BaseEntity{
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.MERGE)
     private Set<Role> roles;
 
-    public User(String name, String username, String password, int enabled, Set<Role> roles) {
-        this.name = name;
+    public User(String username, String email, String password, int enabled, Set<Role> roles) {
         this.username = username;
+        this.email = email;
         this.password = password;
         this.enabled = enabled;
         this.roles = roles;
