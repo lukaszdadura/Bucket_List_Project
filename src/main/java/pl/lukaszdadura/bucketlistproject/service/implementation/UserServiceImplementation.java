@@ -1,23 +1,30 @@
 package pl.lukaszdadura.bucketlistproject.service.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.lukaszdadura.bucketlistproject.exceptions.RegisterFailedException;
+import pl.lukaszdadura.bucketlistproject.model.Role;
 import pl.lukaszdadura.bucketlistproject.model.User;
+import pl.lukaszdadura.bucketlistproject.model.dto.RegisterDto;
+import pl.lukaszdadura.bucketlistproject.repository.RoleRepository;
 import pl.lukaszdadura.bucketlistproject.repository.UserRepository;
 import pl.lukaszdadura.bucketlistproject.service.UserService;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserServiceImplementation implements UserService {
 
-    private final UserRepository userRepository;
-
     @Autowired
-    public UserServiceImplementation(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    UserRepository userRepository;
+    @Autowired
+    BCryptPasswordEncoder passwordEncoder;
+    @Autowired
+    RoleRepository roleRepository;
 
     @Override
     public void addUser(User user) {
@@ -42,5 +49,41 @@ public class UserServiceImplementation implements UserService {
     @Override
     public void updateUser(User user) {
         userRepository.save(user);
+    }
+
+
+    @Override
+    public User save(User u) {
+        u.setPassword(passwordEncoder.encode(u.getPassword()));
+        u.setEnabled(1);
+        Role userRole = roleRepository.findByName("ROLE_USER");
+        u.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+        return userRepository.save(u);
+    }
+
+    @Override
+    public User saveAdmin(User u) {
+        u.setPassword(passwordEncoder.encode(u.getPassword()));
+        u.setEnabled(1);
+        Role userRole = roleRepository.findByName("ROLE_USER");
+        Role adminRole = roleRepository.findByName("ROLE_ADMIN");
+        u.setRoles(new HashSet<Role>(Arrays.asList(userRole, adminRole)));
+        return userRepository.save(u);
+    }
+
+    @Override
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public User registerUser(RegisterDto dto) throws RegisterFailedException {
+        if (!dto.getPassword().equals(dto.getConfirm_password()) || dto.getPassword() == null || dto.getPassword().isEmpty()
+                || dto.getConfirm_password() == null || dto.getConfirm_password().isEmpty()) {
+            throw new RegisterFailedException("Password incorrect");
+        }
+        Role userRole = roleRepository.findByName("ROLE_USER");
+        User user = new User(dto.getName(), dto.getUsername(), passwordEncoder.encode(dto.getPassword()), 1, new HashSet<Role>(Arrays.asList(userRole)));
+        return userRepository.save(user);
     }
 }

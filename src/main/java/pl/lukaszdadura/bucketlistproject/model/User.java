@@ -17,12 +17,10 @@ import java.util.Set;
 @AllArgsConstructor
 @ToString
 @Table(name = "users")
-public class User {
+public class User extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(name = "user_name")
+    private String name;
+    @Column(name = "username")
     @Length(min = 5, message = "Your user name must have at least 5 characters")
     @NotEmpty(message = "Please provide a user name")
     private String username;
@@ -35,7 +33,19 @@ public class User {
     @NotEmpty(message = "Please provide your password")
     private String password;
     private boolean admin;
+    private int enabled;
+    @ToString.Exclude
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private Set<UserAchievement> userAchievementList;
+    @ToString.Exclude
+    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.MERGE)
+    private Set<Role> roles;
 
+    public User(String name, String username, String password, int enabled, Set<Role> roles) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.enabled = enabled;
+        this.roles = roles;
+    }
 }
