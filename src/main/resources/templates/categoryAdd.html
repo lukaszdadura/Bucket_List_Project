@@ -56,16 +56,16 @@
             <div class="masthead-content">
                 <div class="container px-5">
                     <main class="form-signin">
-                        <form action="/categoryadd">
+                        <form action="#" th:action="@{/categoryadd}" method="post" th:object="${category}">
 <!--                            <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">-->
                             <h1 class="h3 mb-3 fw-normal">Add category</h1>
 
                             <div class="form-floating text-black-50">
-                                <input type="text" class="form-control" id="type" name="type" placeholder="Type">
+                                <input type="text" th:field="*{type}" class="form-control" id="type" placeholder="Type">
                                 <label for="type">Type</label>
                             </div>
                             <div class="form-floating text-black-50">
-                                <input type="points" class="form-control" id="points" name="points" placeholder="1-100">
+                                <input type="number" th:field="*{points}" class="form-control" id="points" placeholder="1-100">
                                 <label for="points">Points</label>
                             </div>
 

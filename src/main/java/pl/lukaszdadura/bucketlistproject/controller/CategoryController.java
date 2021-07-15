@@ -25,15 +25,14 @@ public class CategoryController {
     }
 
     @GetMapping("/categoryadd")
-    public String getCategoryAdd() {
+    public String getCategoryAdd(Model model) {
+        Category category = new Category();
+        model.addAttribute("category", category);
         return "categoryAdd";
     }
 
-    @RequestMapping(value = "/categoryadd", method = RequestMethod.POST)
-    public String postCategoryAdd(@RequestParam String points, @RequestParam String type) {
-        Category category = new Category();
-        category.setPoints(Integer.parseInt(points));
-        category.setType(type);
+    @PostMapping("/categoryadd")
+    public String postCategoryAdd(@ModelAttribute("category") Category category) {
         categoryService.addCategory(category);
         return "redirect:/categories";
     }
