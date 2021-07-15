@@ -1,7 +1,7 @@
-INSERT INTO bucket_list.users (admin, email, password, user_name) VALUES (true, 'admin@admin.pl', 'admin', 'admin');
-INSERT INTO bucket_list.users (admin, email, password, user_name) VALUES (false, 'user1@user.pl', 'user1', 'user1');
-INSERT INTO bucket_list.users (admin, email, password, user_name) VALUES (false, 'user2@user.pl', 'user2', 'user2');
-INSERT INTO bucket_list.users (admin, email, password, user_name) VALUES (false, 'user3@user.pl', 'user3', 'user3');
+INSERT INTO bucket_list.users (admin, email, password, username) VALUES (true, 'admin@admin.pl', 'admin', 'admin');
+INSERT INTO bucket_list.users (admin, email, password, username) VALUES (false, 'user1@user.pl', 'user1', 'user1');
+INSERT INTO bucket_list.users (admin, email, password, username) VALUES (false, 'user2@user.pl', 'user2', 'user2');
+INSERT INTO bucket_list.users (admin, email, password, username) VALUES (false, 'user3@user.pl', 'user3', 'user3');
 
 INSERT INTO bucket_list.categories (points, type) VALUES (10, 'cooking');
 INSERT INTO bucket_list.categories (points, type) VALUES (20, 'sport');

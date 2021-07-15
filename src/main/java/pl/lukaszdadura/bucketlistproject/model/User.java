@@ -22,7 +22,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "user_name")
+    @Column(name = "username")
     @Length(min = 5, message = "Your user name must have at least 5 characters")
     @NotEmpty(message = "Please provide a user name")
     private String username;
