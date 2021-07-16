@@ -14,4 +14,5 @@ public interface AchievementService {
     Optional<Achievement> findAchievementById(Long id);
     void deleteAchievement(Long id);
     void updateAchievement(Achievement achievement);
+    public List<Achievement> findRandomThree();
 }
