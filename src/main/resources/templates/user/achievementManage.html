@@ -44,6 +44,8 @@
                 <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
                 <li class="nav-item"><a class="nav-link" href="/achievements">Achievements</a></li>
                 <li class="nav-item"><a class="nav-link" href="/categories">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Manage</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Ranking</a></li>
             </ul>
         </div>
     </div>
@@ -57,31 +59,21 @@
     <div class="masthead-content">
         <div class="container px-5">
             <main class="form-signin">
-                <form action="#" th:action="@{/categoryadd}" method="post" th:object="${category}">
+
                     <!--                            <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">-->
-                    <h1 class="h3 mb-3 fw-normal">Add category</h1>
+                    <h1 class="h3 mb-3 fw-normal">Manage your achievements</h1>
 
-                    <div class="form-floating text-black-50">
-                        <input type="text" th:field="*{type}" class="form-control" id="type" placeholder="Type">
-                        <label for="type">Type</label>
-                    </div>
-                    <div class="form-floating text-black-50">
-                        <input type="number" th:field="*{points}" class="form-control" id="points" placeholder="1-100">
-                        <label for="points">Points</label>
-                    </div>
-
-                    <!--                            <div class="checkbox mb-3">-->
-                    <!--                                <label>-->
-                    <!--                                    <input type="checkbox" value="remember-me"> Remember me-->
-                    <!--                                </label>-->
-                    <!--                            </div>-->
-
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Add</button>
+                    <a href="/user/achievementAdd" class="w-100 btn btn-lg btn-primary">Add</a>
+                    <a href="/user/achievementAdd" class="w-100 btn btn-lg btn-primary">Edit</a>
+                    <a href="/user/achievementAdd" class="w-100 btn btn-lg btn-primary">Close</a>
+                    <a href="/user/achievementAdd" class="w-100 btn btn-lg btn-primary">Show active</a>
+                    <a href="/user/achievementAdd" class="w-100 btn btn-lg btn-primary">Show closed</a>
+                    <button  class="w-100 btn btn-lg btn-primary" type="">Add</button>
                     <!--                            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>-->
                     <br>
                     <br>
                     <br>
-                </form>
+
             </main>
         </div>
     </div>

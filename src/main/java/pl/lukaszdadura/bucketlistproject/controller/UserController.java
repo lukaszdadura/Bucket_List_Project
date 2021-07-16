@@ -1,6 +1,7 @@
 package pl.lukaszdadura.bucketlistproject.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,9 +40,13 @@ public class UserController {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-
-       userService.addUser(user);
-
+        userService.addUser(user);
         return "home3";
     }
+
+    @GetMapping("/achievementmanage")
+    public String achievementManage() {
+        return "/user/achievementmanage1";
+    }
 }
+
