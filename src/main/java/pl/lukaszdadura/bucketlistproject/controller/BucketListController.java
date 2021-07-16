@@ -1,9 +1,11 @@
 package pl.lukaszdadura.bucketlistproject.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import pl.lukaszdadura.bucketlistproject.model.Achievement;
 import pl.lukaszdadura.bucketlistproject.model.User;
@@ -35,13 +37,30 @@ public class BucketListController {
 
     @GetMapping("/")
     public String home(Model model) {
-        User user = userService.findAllUsers().get(0);
-        model.addAttribute("user", user);
-        System.out.println(user);
         List<Achievement> randomAchievementList = achievementService.findRandomThree();
         model.addAttribute("randomAchievementList", randomAchievementList);
-
         return "home3";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+
+    @GetMapping("/signup")
+    public String signUp(Model model) {
+        model.addAttribute("user", new User());
+        return "signup";
+    }
+
+    @PostMapping("/processSignup")
+    public String processRegister(User user) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+        userService.addUser(user);
+        return "login";
     }
 
 //    @GetMapping("/achievements")

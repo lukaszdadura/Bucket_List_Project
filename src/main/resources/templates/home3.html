@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -39,6 +39,8 @@
                 <div class="container px-5">
                     <h1 class="masthead-heading mb-0">Bucket List Project</h1>
                     <h2 class="masthead-subheading mb-0">Share all your achievements</h2>
+                    <div sec:authorize="isAuthenticated()">
+                        Authenticated as <span sec:authentication="name"></span></div>
                     <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
                 </div>
             </div>

@@ -42,15 +42,21 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.authorizeRequests().antMatchers(
-                    "/registration**",
+            http
+                    .authorizeRequests()
+                    .antMatchers(
+                    "/",
                     "/js/**",
                     "/css/**",
-                    "/img/**").permitAll()
+                    "/assets/**",
+                            "/signup").permitAll()
+                    .antMatchers("/user/**")
+                    .authenticated()
                     .anyRequest().authenticated()
                     .and()
                     .formLogin()
                     .loginPage("/login")
+                    .defaultSuccessUrl("/user/")
                     .permitAll()
                     .and()
                     .logout()
@@ -64,8 +70,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 //                    .anyRequest().permitAll()
 //                    .and()
 //                    .formLogin()
-//                    .loginPage("/signup")
-//                    .usernameParameter("email")
+//                    .loginPage("/login")
 //                    .defaultSuccessUrl("/")
 //                    .permitAll()
 //                    .and()
