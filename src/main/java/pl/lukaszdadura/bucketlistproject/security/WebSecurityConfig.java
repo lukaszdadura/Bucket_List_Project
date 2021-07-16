@@ -10,8 +10,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-    @Configuration
+@Configuration
     @EnableWebSecurity
     public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -41,16 +42,33 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.authorizeRequests()
-                    .antMatchers("/").authenticated()
-                    .anyRequest().permitAll()
+            http.authorizeRequests().antMatchers(
+                    "/registration**",
+                    "/js/**",
+                    "/css/**",
+                    "/img/**").permitAll()
+                    .anyRequest().authenticated()
                     .and()
                     .formLogin()
-                    .loginPage("/signup")
-                    .usernameParameter("email")
-                    .defaultSuccessUrl("/")
+                    .loginPage("/login")
                     .permitAll()
                     .and()
-                    .logout().logoutSuccessUrl("/").permitAll();
+                    .logout()
+                    .invalidateHttpSession(true)
+                    .clearAuthentication(true)
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .logoutSuccessUrl("/login?logout")
+                    .permitAll();
+//            .authorizeRequests()
+//                    .antMatchers("/").authenticated()
+//                    .anyRequest().permitAll()
+//                    .and()
+//                    .formLogin()
+//                    .loginPage("/signup")
+//                    .usernameParameter("email")
+//                    .defaultSuccessUrl("/")
+//                    .permitAll()
+//                    .and()
+//                    .logout().logoutSuccessUrl("/").permitAll();
         }
 }
