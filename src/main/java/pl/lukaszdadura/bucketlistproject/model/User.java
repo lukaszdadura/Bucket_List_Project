@@ -36,7 +36,7 @@ public class User {
     private String password;
     private boolean admin;
     @ToString.Exclude
-    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.REMOVE)
     private Set<UserAchievement> userAchievementList;
 
 }

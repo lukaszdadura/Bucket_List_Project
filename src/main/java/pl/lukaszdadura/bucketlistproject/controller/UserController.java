@@ -34,9 +34,11 @@ public class UserController {
     public String userHome(Model model) {
         List<Achievement> randomAchievementList = achievementService.findRandomThree();
         model.addAttribute("randomAchievementList", randomAchievementList);
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User loggedUser = ((User)principal);
-        model.addAttribute("user", loggedUser);
+        String principal = SecurityContextHolder.getContext().getAuthentication().getName();
+        System.out.println(principal);
+//        User loggedUser = ((User)principal);
+//        Long userId = loggedUser.getId();
+//        model.addAttribute("user", loggedUser);
         return "user/userHome";}
 
     @GetMapping("/achievementmanage")
