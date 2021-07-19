@@ -57,11 +57,46 @@
     <div class="masthead-content">
         <div class="container px-5">
             <main class="form-signin">
+<!--                <form name="f" th:object="${userachievement}" method="post">-->
+<!--                    <select th:field="*{achievement_id}">-->
+<!--                        <option th:each="achievement:${achievementlist}" th:value="${achievement.id}" th:text="achievement.name"/>-->
+<!--                    </select>-->
+<!--                <form action="#" th:action="@{/user/addachievements}" method="post" th:object="${userachievement}">-->
+<!--                   <select type="number" class="form-select"><div id="scroll" th:each="achievement,iStat : ${achievementlist}">-->
+<!--                       <option >-->
+<!--                    <h2 class="display-4" th:field="*{achievement}" id="id" th:text="'#' + ${achievement.id} + ' ' + ${achievement.name}"></h2></option>-->
+<!--                    </div></select>-->
+
                 <form action="#" th:action="@{/user/addachievements}" method="post" th:object="${userachievement}">
-                   <select type="number" class="form-select"><div id="scroll" th:each="achievement,iStat : ${achievementlist}">
-                       <option >
-                    <h2 class="display-4" th:field="*{id}" id="id" th:text="'#' + ${achievement.id} + ' ' + ${achievement.name}"></h2></option>
-                    </div></select>
+                    <!--                            <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">-->
+                    <h1 class="h3 mb-3 fw-normal">Add category</h1>
+
+<!--                    <div class="form-floating text-black-50">-->
+<!--                        <input type="datetime-local" th:field="*{created}" class="form-control" id="created" placeholder="Created">-->
+<!--                        <label for="created">Type</label>-->
+<!--                    </div>-->
+<!--                    <div class="form-floating text-black-50">-->
+<!--                        <input type="datetime-local" th:field="*{dueDate}" class="form-control" id="dueDate" placeholder="Created">-->
+<!--                        <label for="dueDate">dueDate</label>-->
+<!--                    </div>-->
+<!--                    <div class="form-floating text-black-50">-->
+<!--                        <input type="number" th:field="*{evidence}" class="form-control" id="evidence" placeholder="Created">-->
+<!--                        <label for="evidence">evidence</label>-->
+<!--                    </div>-->
+<!--                    <div class="form-floating text-black-50">-->
+<!--                        <input type="number" th:field="*{user_id}" class="form-control" id="userId" placeholder="userId">-->
+<!--                        <label for="userId">userId</label>-->
+<!--                    </div>-->
+<!--                    <div class="form-floating text-black-50">-->
+<!--                        <input type="number" th:field="*{achievementId}" class="form-control" id="achievementId" placeholder="achievementId">-->
+<!--                        <label for="achievementId">achievementId</label>-->
+<!--                    </div>-->
+<!--                    <div class="form-floating text-black-50">-->
+<!--                        <input type="number" th:field="*{points}" class="form-control" id="points" placeholder="1-100">-->
+<!--                        <label for="points">Points</label>-->
+<!--                    </div>-->
+
+
                     <!--                    <div class="col-lg-3" th:object="${userachievement}">-->
 <!--                        <select class="form-control" id="testOrder" name="testOrder">-->
 <!--                            <option value="">Select Test Order</option>-->
