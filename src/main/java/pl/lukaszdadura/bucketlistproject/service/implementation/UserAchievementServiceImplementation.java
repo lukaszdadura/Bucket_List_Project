@@ -43,4 +43,6 @@ public class UserAchievementServiceImplementation implements UserAchievementServ
     public void updateUserAchievement(UserAchievement userAchievement) {
         userAchievementRepository.save(userAchievement);
     }
+
+    public List<UserAchievement> findUsersAchievements(Long id) { return userAchievementRepository.findAllByUserId(id);}
 }

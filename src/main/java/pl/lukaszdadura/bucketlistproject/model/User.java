@@ -35,6 +35,7 @@ public class User {
     @NotEmpty(message = "Please provide your password")
     private String password;
     private boolean admin;
+    @ToString.Exclude
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private Set<UserAchievement> userAchievementList;
 

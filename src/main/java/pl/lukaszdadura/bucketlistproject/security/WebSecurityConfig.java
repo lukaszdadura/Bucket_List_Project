@@ -56,7 +56,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
                     .and()
                     .formLogin()
                     .loginPage("/login")
-                    .defaultSuccessUrl("/user/")
+                    .defaultSuccessUrl("/user/achievementmanage")
                     .permitAll()
                     .and()
                     .logout()
