@@ -6,7 +6,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Bucket List Project</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" th:href="@{/assets/favicon.ico}" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -29,6 +29,8 @@
                 <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
                 <li class="nav-item"><a class="nav-link" href="/achievements">Achievements</a></li>
                 <li class="nav-item"><a class="nav-link" href="/categories">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Manage</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Ranking</a></li>
             </ul>
         </div>
     </div>
@@ -56,7 +58,7 @@
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6 order-lg-2">
-                <div class="p-5"><img class="img-fluid rounded-circle" src="assets/img/02.jpg" alt="..." /></div>
+                <div class="p-5"><img class="img-fluid rounded-circle" th:src="@{/assets/img/02.jpg}" alt="..." /></div>
             </div>
             <div class="col-lg-6 order-lg-1">
                 <div class="p-5">
