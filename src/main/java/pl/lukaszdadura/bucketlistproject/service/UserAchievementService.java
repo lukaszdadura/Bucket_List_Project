@@ -13,4 +13,5 @@ public interface UserAchievementService {
     void deleteUserAchievement(Long id);
     void updateUserAchievement(UserAchievement userAchievement);
     public List<UserAchievement> findUsersAchievements(Long id);
+
 }

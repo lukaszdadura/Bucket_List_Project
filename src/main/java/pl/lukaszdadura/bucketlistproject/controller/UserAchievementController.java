@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.lukaszdadura.bucketlistproject.model.Achievement;
 import pl.lukaszdadura.bucketlistproject.model.User;
 import pl.lukaszdadura.bucketlistproject.model.UserAchievement;
+import pl.lukaszdadura.bucketlistproject.repository.UserAchievementRepository;
 import pl.lukaszdadura.bucketlistproject.repository.UserRepository;
 import pl.lukaszdadura.bucketlistproject.service.AchievementService;
 import pl.lukaszdadura.bucketlistproject.service.UserAchievementService;
@@ -24,13 +25,15 @@ public class UserAchievementController {
     private final UserService userService;
     private final AchievementService achievementService;
     private final UserRepository userRepository;
+    private final UserAchievementRepository userAchievementRepository;
 
     @Autowired
-    public UserAchievementController(UserAchievementService userAchievementService, UserService userService, AchievementService achievementService, UserRepository userRepository) {
+    public UserAchievementController(UserAchievementService userAchievementService, UserService userService, AchievementService achievementService, UserRepository userRepository, UserAchievementRepository userAchievementRepository) {
         this.userAchievementService = userAchievementService;
         this.userService = userService;
         this.achievementService = achievementService;
         this.userRepository = userRepository;
+        this.userAchievementRepository = userAchievementRepository;
     }
 
     @GetMapping("/user/showachievements")
@@ -60,9 +63,17 @@ public class UserAchievementController {
         return "redirect:/user/achievementmanage";
     }
 
+
     @GetMapping("/user/editachievements")
-    public String getUserAchievementEdit(Model model) {
+    public String getUserAchievementProcess(Model model) {
         UserAchievement userAchievement = new UserAchievement();
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userRepository.findByEmail(principal.toString());
+        List<UserAchievement> userAchievementList = userAchievementRepository.findAllByUserId(user.getId());
+        model.addAttribute("user", user);
+        model.addAttribute("userachievement", userAchievement);
+        model.addAttribute("userachievementlist", userAchievementList);
+        return "/user/userAchievementEdit";
     }
 
 

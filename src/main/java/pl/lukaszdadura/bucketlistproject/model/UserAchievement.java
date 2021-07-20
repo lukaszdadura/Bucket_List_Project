@@ -30,6 +30,7 @@ public class UserAchievement {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull
     private LocalDate dueDate;
+    @ToString.Exclude
     @Type(type="org.hibernate.type.BlobType")
     @Lob
     private byte[] evidence;

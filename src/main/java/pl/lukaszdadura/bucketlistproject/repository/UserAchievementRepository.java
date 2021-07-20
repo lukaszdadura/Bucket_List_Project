@@ -12,5 +12,7 @@ public interface UserAchievementRepository extends JpaRepository<UserAchievement
 
     Optional<UserAchievement> findById(Long id);
     List<UserAchievement> findAllByUserId(Long id);
+    @Query(value = "SELECT * FROM user_achievement ua WHERE ua.user_id = ?1",nativeQuery = true)
+    List<UserAchievement> findAllUserAchievementById(Long id);
 
 }
