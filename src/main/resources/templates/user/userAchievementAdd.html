@@ -61,24 +61,40 @@
 <!--                    <select th:field="*{achievement_id}">-->
 <!--                        <option th:each="achievement:${achievementlist}" th:value="${achievement.id}" th:text="achievement.name"/>-->
 <!--                    </select>-->
-                <form action="#" th:action="@{/user/addachievements}" method="post" th:object="${userachievement}">
-                   <select type="number" class="form-select"><div id="scroll" th:each="achievement,iStat : ${achievementlist}">
-                       <option >
-                    <h2 class="display-4" th:field="*{achievement}" id="id" th:text="'#' + ${achievement.id} + ' ' + ${achievement.name}"></h2></option>
-                    </div></select>
+                <form th:action="@{/user/addachievements}" method="post" th:object="${userachievement}">
+                    <select th:field="*{user}" class="form-select">
+                            <option th:text="'#' + ${user.id} + ' ' + ${user.username}" th:value="${user.id}"></option>
+                    </select>
+                   <select th:field="*{achievement}" class="form-select">
+                       <th:block th:each="achievement : ${achievementlist}">
+                           <option th:text="'#' + ${achievement.id} + ' ' + ${achievement.name}" th:value="${achievement.id}"></option>
+                       </th:block>
+                   </select>
+                    <div class="form-floating text-black-50">
+                        <input type="text" th:field="*{created}" class="form-control" id="created" placeholder="Created">
+                        <label for="created">Start</label>
+                    </div>
+<!--                    <div class="form-floating text-black-50">-->
+<!--                        <input type="datetime-local" th:field="*{dueDate}" class="form-control" id="dueDate" placeholder="Created">-->
+<!--                        <label for="dueDate">Finish</label>-->
+<!--                    </div>-->
+<!--                    <div class="form-floating text-black-50">&ndash;&gt;-->
+<!--                        <input type="text" th:field="*{evidence}" class="form-control" id="evidence" placeholder="Created">-->
+<!--                        <label for="evidence">evidence</label>-->
+<!--                    </div>-->
 
+                    This is a blob description
+
+
+
+<!--                       <div id="scroll" th:each="achievement,iStat : ${achievementlist}">-->
+<!--                       <option >-->
+<!--                    <h2 class="display-4" th:field="*{achievement}" id="id" th:text="'#' + ${achievement.id} + ' ' + ${achievement.name}"></h2></option>-->
+<!--                    </div></select>-->
 <!--                <form action="#" th:action="@{/user/addachievements}" method="post" th:object="${userachievement}">-->
 <!--                    &lt;!&ndash;                            <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">&ndash;&gt;-->
 <!--                    <h1 class="h3 mb-3 fw-normal">Add category</h1>-->
 
-<!--                    <div class="form-floating text-black-50">-->
-<!--                        <input type="datetime-local" th:field="*{created}" class="form-control" id="created" placeholder="Created">-->
-<!--                        <label for="created">Type</label>-->
-<!--                    </div>-->
-<!--                    <div class="form-floating text-black-50">-->
-<!--                        <input type="datetime-local" th:field="*{dueDate}" class="form-control" id="dueDate" placeholder="Created">-->
-<!--                        <label for="dueDate">dueDate</label>-->
-<!--                    </div>-->
 <!--                    <div class="form-floating text-black-50">-->
 <!--                        <input type="number" th:field="*{evidence}" class="form-control" id="evidence" placeholder="Created">-->
 <!--                        <label for="evidence">evidence</label>-->
