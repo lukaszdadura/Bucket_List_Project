@@ -60,6 +60,11 @@ public class UserAchievementController {
         return "redirect:/user/achievementmanage";
     }
 
+    @GetMapping("/user/editachievements")
+    public String getUserAchievementEdit(Model model) {
+        UserAchievement userAchievement = new UserAchievement();
+    }
+
 
 
 

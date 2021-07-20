@@ -62,7 +62,8 @@
 <!--                        <option th:each="achievement:${achievementlist}" th:value="${achievement.id}" th:text="achievement.name"/>-->
 <!--                    </select>-->
                 <form th:action="@{/user/addachievements}" method="post" th:object="${userachievement}">
-                    <select th:field="*{user}" class="form-select">
+                    <h1 class="h3 mb-3 fw-normal">Add achievement</h1>
+                    <select hidden th:field="*{user}" class="form-select">
                             <option th:text="'#' + ${user.id} + ' ' + ${user.username}" th:value="${user.id}"></option>
                     </select>
                    <select th:field="*{achievement}" class="form-select">
@@ -71,20 +72,17 @@
                        </th:block>
                    </select>
                     <div class="form-floating text-black-50">
-                        <input type="text" th:field="*{created}" class="form-control" id="created" placeholder="Created">
+                        <input type="date" th:field="*{created}" class="form-control" id="created" placeholder="Created">
                         <label for="created">Start</label>
                     </div>
+                    <div class="form-floating text-black-50">
+                        <input type="date" th:field="*{dueDate}" class="form-control" id="dueDate" placeholder="DueDate">
+                        <label for="dueDate">Finish</label>
+                    </div>
 <!--                    <div class="form-floating text-black-50">-->
-<!--                        <input type="datetime-local" th:field="*{dueDate}" class="form-control" id="dueDate" placeholder="Created">-->
-<!--                        <label for="dueDate">Finish</label>-->
-<!--                    </div>-->
-<!--                    <div class="form-floating text-black-50">&ndash;&gt;-->
 <!--                        <input type="text" th:field="*{evidence}" class="form-control" id="evidence" placeholder="Created">-->
 <!--                        <label for="evidence">evidence</label>-->
 <!--                    </div>-->
-
-                    This is a blob description
-
 
 
 <!--                       <div id="scroll" th:each="achievement,iStat : ${achievementlist}">-->

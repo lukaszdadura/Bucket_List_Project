@@ -24,7 +24,9 @@ public class Achievement {
     private String name;
     private String description;
     @OneToMany(mappedBy = "achievement", cascade = CascadeType.REMOVE)
+    @ToString.Exclude
     private Set<UserAchievement> userAchievementList;
+    @ToString.Exclude
     @OneToMany
     private List<Category> categoryList = new ArrayList<>();
 
