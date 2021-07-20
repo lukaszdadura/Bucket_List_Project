@@ -61,15 +61,15 @@
 <!--                    <select th:field="*{achievement_id}">-->
 <!--                        <option th:each="achievement:${achievementlist}" th:value="${achievement.id}" th:text="achievement.name"/>-->
 <!--                    </select>-->
-<!--                <form action="#" th:action="@{/user/addachievements}" method="post" th:object="${userachievement}">-->
-<!--                   <select type="number" class="form-select"><div id="scroll" th:each="achievement,iStat : ${achievementlist}">-->
-<!--                       <option >-->
-<!--                    <h2 class="display-4" th:field="*{achievement}" id="id" th:text="'#' + ${achievement.id} + ' ' + ${achievement.name}"></h2></option>-->
-<!--                    </div></select>-->
-
                 <form action="#" th:action="@{/user/addachievements}" method="post" th:object="${userachievement}">
-                    <!--                            <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">-->
-                    <h1 class="h3 mb-3 fw-normal">Add category</h1>
+                   <select type="number" class="form-select"><div id="scroll" th:each="achievement,iStat : ${achievementlist}">
+                       <option >
+                    <h2 class="display-4" th:field="*{achievement}" id="id" th:text="'#' + ${achievement.id} + ' ' + ${achievement.name}"></h2></option>
+                    </div></select>
+
+<!--                <form action="#" th:action="@{/user/addachievements}" method="post" th:object="${userachievement}">-->
+<!--                    &lt;!&ndash;                            <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">&ndash;&gt;-->
+<!--                    <h1 class="h3 mb-3 fw-normal">Add category</h1>-->
 
 <!--                    <div class="form-floating text-black-50">-->
 <!--                        <input type="datetime-local" th:field="*{created}" class="form-control" id="created" placeholder="Created">-->
