@@ -46,7 +46,7 @@ public class UserAchievementController {
     }
 
     @GetMapping("/user/showachievements")
-    public String showAllUserAchievements (Model model) {
+    public String showAllUserAchievements(Model model) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userRepository.findByEmail(principal.toString());
         List<UserAchievement> userAchievementList = userAchievementRepository.findAllByUserId(user.getId());
@@ -89,7 +89,7 @@ public class UserAchievementController {
     public String postUserAchievementProcess(@ModelAttribute("userachievement") UserAchievement userAchievement, Model model) {
         UserAchievement userAchievement1 = new UserAchievement();
         Optional<UserAchievement> currentAchievement = userAchievementRepository.findById(userAchievement.getId());
-        model.addAttribute("userachievement",currentAchievement);
+        model.addAttribute("userachievement", currentAchievement);
         model.addAttribute("userachievementedit", userAchievement1);
         System.out.println(currentAchievement);
         return "/user/userAchievementEdit2";
@@ -117,7 +117,7 @@ public class UserAchievementController {
     public String postConfirmUserAchievementProcess(@ModelAttribute("userachievement") UserAchievement userAchievement, Model model) {
         UserAchievement userAchievement1 = new UserAchievement();
         Optional<UserAchievement> currentAchievement = userAchievementRepository.findById(userAchievement.getId());
-        model.addAttribute("userachievement",currentAchievement);
+        model.addAttribute("userachievement", currentAchievement);
         model.addAttribute("userachievementedit", userAchievement1);
         System.out.println(currentAchievement);
         return "/user/userAchievementConfirm2";
@@ -144,16 +144,21 @@ public class UserAchievementController {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userRepository.findByEmail(principal.toString());
         List<UserAchievement> userAchievementList = userAchievementRepository.findAllByUserId(user.getId());
-        int counter = 0;
-        for (UserAchievement userAchievement:
-             userAchievementList) {
+        int pointsCounter = 0;
+        int achievementCounter = userAchievementList.size();
+        int categoryCounter = 0;
+        for (UserAchievement userAchievement :
+                userAchievementList) {
             List<Category> categoryList = userAchievement.getAchievement().getCategoryList();
             for (Category category :
                     categoryList) {
-                counter += category.getPoints();
+                pointsCounter += category.getPoints();
+                categoryCounter++;
             }
         }
-        model.addAttribute("counter", counter);
+        model.addAttribute("pointscounter", pointsCounter);
+        model.addAttribute("achievementcounter", achievementCounter);
+        model.addAttribute("categorycounter", categoryCounter);
         return "/user/userRanking";
     }
 
