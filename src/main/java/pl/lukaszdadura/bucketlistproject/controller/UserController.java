@@ -41,26 +41,12 @@ public class UserController {
         User user = userRepository.findByEmail(principal.toString());
         user.getId();
         System.out.println(principal);
-//        User loggedUser = ((User)principal);
-//        Long userId = loggedUser.getId();
-//        model.addAttribute("user", loggedUser);
         return "user/userHome";}
 
     @GetMapping("/achievementmanage")
     public String achievementManage() {
-        return "user/achievementManage1";
+        return "user/achievementManage";
     }
 
-//    @GetMapping("/addachievements")
-//    public String getAchievementAdd (Model model) {
-//        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        User loggedUser = ((User)principal);
-//        List<UserAchievement> userAchievementList = userAchievementService.findUsersAchievements(loggedUser.getId());
-//        model.addAttribute("userAchievementList", userAchievementList);
-//        return "/user/userAchievementList";
-//    }
-
-//    @PostMapping("/addachievements")
-//    public String postAchievementAdd (Model model){}
 }
 

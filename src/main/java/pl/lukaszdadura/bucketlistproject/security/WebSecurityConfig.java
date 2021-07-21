@@ -49,14 +49,14 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
                     "/js/**",
                     "/css/**",
                     "/assets/**",
-                            "/signup").permitAll()
+                            "/signup", "/achievements", "/categories").permitAll()
                     .antMatchers("/user/**")
                     .authenticated()
                     .anyRequest().authenticated()
                     .and()
                     .formLogin()
                     .loginPage("/login")
-                    .defaultSuccessUrl("/user/achievementmanage")
+                    .defaultSuccessUrl("/user/home")
                     .permitAll()
                     .and()
                     .logout()
