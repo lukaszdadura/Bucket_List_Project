@@ -32,16 +32,12 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-
     @GetMapping("/home")
     public String userHome(Model model) {
         List<Achievement> randomAchievementList = achievementService.findRandomThree();
         model.addAttribute("randomAchievementList", randomAchievementList);
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userRepository.findByEmail(principal.toString());
-        user.getId();
-        System.out.println(principal);
-        return "user/userHome";}
+        return "user/userHome";
+    }
 
     @GetMapping("/achievementmanage")
     public String achievementManage() {

@@ -6,7 +6,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Bucket List Project</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" th:href="@{/assets/favicon.ico}" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -44,6 +44,8 @@
                 <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
                 <li class="nav-item"><a class="nav-link" href="/achievements">Achievements</a></li>
                 <li class="nav-item"><a class="nav-link" href="/categories">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/achievementmanage">Manage</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/userranking">Ranking</a></li>
             </ul>
         </div>
     </div>
@@ -62,7 +64,7 @@
 <!--                        <option th:each="achievement:${achievementlist}" th:value="${achievement.id}" th:text="achievement.name"/>-->
 <!--                    </select>-->
                 <form th:action="@{/user/editachievements}" method="post" th:object="${userachievement}">
-                    <h1 class="h3 mb-3 fw-normal">Add achievement</h1>
+                    <h1 class="h3 mb-3 fw-normal">Edit achievement</h1>
 <!--                    <select hidden th:field="*{user}" class="form-select">-->
 <!--                            <option th:text="'#' + ${user.id} + ' ' + ${user.username}" th:value="${user.id}"></option>-->
 <!--                    </select>-->
@@ -147,7 +149,7 @@
 <!--                    &lt;!&ndash;                                </label>&ndash;&gt;-->
 <!--                    &lt;!&ndash;                            </div>&ndash;&gt;-->
 
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Add</button>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Edit</button>
 <!--                    &lt;!&ndash;                            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>&ndash;&gt;-->
 <!--                    <br>-->
 <!--                    <br>-->
