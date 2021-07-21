@@ -17,6 +17,7 @@ import pl.lukaszdadura.bucketlistproject.service.UserAchievementService;
 import pl.lukaszdadura.bucketlistproject.service.UserService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class UserAchievementController {
@@ -65,7 +66,7 @@ public class UserAchievementController {
 
 
     @GetMapping("/user/editachievements")
-    public String getUserAchievementProcess(Model model) {
+    public String getUserAchievement(Model model) {
         UserAchievement userAchievement = new UserAchievement();
         Object principal = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userRepository.findByEmail(principal.toString());
@@ -74,6 +75,20 @@ public class UserAchievementController {
         model.addAttribute("userachievement", userAchievement);
         model.addAttribute("userachievementlist", userAchievementList);
         return "/user/userAchievementEdit";
+    }
+
+    @PostMapping("/user/editachievements")
+    public String postUserAchievementProcess(@ModelAttribute("userachievement") UserAchievement userAchievement, Model model) {
+        Optional<UserAchievement> currentAchievement = userAchievementRepository.findById(userAchievement.getId());
+        model.addAttribute("userachievement",currentAchievement);
+        System.out.println(currentAchievement);
+        return "/user/userAchievementEdit2";
+    }
+
+    @PostMapping("/user/editachievementsprocess")
+    public String postUserAchievementProcess2(@ModelAttribute("userachievement") UserAchievement userAchievement) {
+        userAchievementService.updateUserAchievement(userAchievement);
+        return "redirect:/user/achievementmanage";
     }
 
 
