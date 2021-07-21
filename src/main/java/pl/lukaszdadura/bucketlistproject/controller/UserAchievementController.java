@@ -79,16 +79,18 @@ public class UserAchievementController {
 
     @PostMapping("/user/editachievements")
     public String postUserAchievementProcess(@ModelAttribute("userachievement") UserAchievement userAchievement, Model model) {
+        UserAchievement userAchievement1 = new UserAchievement();
         Optional<UserAchievement> currentAchievement = userAchievementRepository.findById(userAchievement.getId());
         model.addAttribute("userachievement",currentAchievement);
+        model.addAttribute("userachievementedit", userAchievement1);
         System.out.println(currentAchievement);
         return "/user/userAchievementEdit2";
     }
 
     @PostMapping("/user/editachievementsprocess")
-    public String postUserAchievementProcess2(@ModelAttribute("userachievement") UserAchievement userAchievement) {
-        userAchievementService.updateUserAchievement(userAchievement);
-        return "redirect:/user/achievementmanage";
+    public String postUserAchievementProcess2(@ModelAttribute("userachievementedit") UserAchievement userAchievement1) {
+        userAchievementService.updateUserAchievement(userAchievement1);
+        return "/user/achievementmanage";
     }
 
 
