@@ -90,7 +90,7 @@ public class UserAchievementController {
     @PostMapping("/user/editachievementsprocess")
     public String postUserAchievementProcess2(@ModelAttribute("userachievementedit") UserAchievement userAchievement1) {
         userAchievementService.updateUserAchievement(userAchievement1);
-        return "/user/achievementmanage";
+        return "redirect:/user/achievementmanage";
     }
 
 

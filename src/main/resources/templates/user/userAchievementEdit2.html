@@ -63,7 +63,7 @@
 <!--                    </select>-->
 
                 <p th:text="${userachievement.get().created}"></p>
-                <form th:action="@{/user/editachievementsprocess}" method="post" th:object="${userachievementedit}">
+                <form th:action="@{/user/editachievementsprocess}" method="post" th:object="${userachievement}">
 <!--                    <h1 class="h3 mb-3 fw-normal">Add achievement</h1>-->
                     <select  th:field="*{id}" class="form-select">
                             <option th:text="'#' + ${userachievement.get().id}" th:value="${userachievement.get().id}"></option>
@@ -76,7 +76,7 @@
                     </select>
 
                     <div class="form-floating text-black-50">
-                        <input type="date" th:field="*{created}" class="form-control" id="created" placeholder="${userachievement.get().created}">
+                        <input readonly type="date"  th:field="*{created}" th:value="${userachievement.get().getCreated()}" class="form-control" id="created" th:placeholder="${userachievement.get().created}">
                         <label for="created">Start</label>
                     </div>
                     <div class="form-floating text-black-50">
