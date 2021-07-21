@@ -25,10 +25,10 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="/signup">Sign Up</a></li>
-                <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
-                <li class="nav-item"><a class="nav-link" href="/achievements">Achievements</a></li>
-                <li class="nav-item"><a class="nav-link" href="/categories">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/signup">Sign Up</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/login">Log In</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/achievements">Achievements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/categories">Categories</a></li>
                 <li class="nav-item"><a class="nav-link" href="/user/achievementmanage">Manage</a></li>
                 <li class="nav-item"><a class="nav-link" href="/user/userranking">Ranking</a></li>
             </ul>
@@ -58,7 +58,7 @@
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6 order-lg-2">
-                <div class="p-5"><img class="img-fluid rounded-circle" th:src="@{/assets/img/02.jpg}" alt="..." /></div>
+                <div class="p-5"><img class="img-fluid rounded-circle" th:src="@{'/assets/img/' + '0' + ${iStat.count} +'.jpg'}" alt="..." /></div>
             </div>
             <div class="col-lg-6 order-lg-1">
                 <div class="p-5">
