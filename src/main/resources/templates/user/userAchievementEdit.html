@@ -52,6 +52,8 @@
 </nav>
 <!-- Header-->
 <header class="masthead text-center text-white">
+    <br>
+    <br>
     <div class="bg-circle-1 bg-circle"></div>
     <div class="bg-circle-2 bg-circle"></div>
     <div class="bg-circle-3 bg-circle"></div>
@@ -70,7 +72,7 @@
 <!--                    </select>-->
                    <select th:field="*{id}" class="form-select">
                        <th:block th:each="achievement : ${userachievementlist}">
-                           <option th:text="'#' + ${achievement.achievement.name} + ' ' + ${achievement.created} + ${achievement.id}" th:value="${achievement.id}"></option>
+                           <option th:text="'#' + ${achievement.achievement.name} + ' ' + ${achievement.created}" th:value="${achievement.id}"></option>
                        </th:block>
                    </select>
 
@@ -152,8 +154,10 @@
                     <button class="w-100 btn btn-lg btn-primary" type="submit">Edit</button>
 <!--                    &lt;!&ndash;                            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>&ndash;&gt;-->
 <!--                    <br>-->
-<!--                    <br>-->
-<!--                    <br>-->
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                 </form>
             </main>
         </div>

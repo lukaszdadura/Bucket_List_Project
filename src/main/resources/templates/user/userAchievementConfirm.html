@@ -52,6 +52,8 @@
 </nav>
 <!-- Header-->
 <header class="masthead text-center text-white">
+    <br>
+    <br>
     <div class="bg-circle-1 bg-circle"></div>
     <div class="bg-circle-2 bg-circle"></div>
     <div class="bg-circle-3 bg-circle"></div>
@@ -64,13 +66,13 @@
 <!--                        <option th:each="achievement:${achievementlist}" th:value="${achievement.id}" th:text="achievement.name"/>-->
 <!--                    </select>-->
                 <form th:action="@{/user/confirmachievements}" method="post" th:object="${userachievement}">
-                    <h1 class="h3 mb-3 fw-normal">Add achievement</h1>
+                    <h1 class="h3 mb-3 fw-normal">Confirm achievement</h1>
 <!--                    <select hidden th:field="*{user}" class="form-select">-->
 <!--                            <option th:text="'#' + ${user.id} + ' ' + ${user.username}" th:value="${user.id}"></option>-->
 <!--                    </select>-->
                    <select th:field="*{id}" class="form-select">
                        <th:block th:each="achievement : ${userachievementlist}">
-                           <option th:text="'#' + ${achievement.achievement.name} + ' ' + ${achievement.created} + ${achievement.id}" th:value="${achievement.id}"></option>
+                           <option th:text="'#' + ${achievement.achievement.name} + ' ' + ${achievement.dueDate}" th:value="${achievement.id}"></option>
                        </th:block>
                    </select>
 
@@ -149,11 +151,15 @@
 <!--                    &lt;!&ndash;                                </label>&ndash;&gt;-->
 <!--                    &lt;!&ndash;                            </div>&ndash;&gt;-->
 
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Add</button>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Confirm</button>
 <!--                    &lt;!&ndash;                            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>&ndash;&gt;-->
 <!--                    <br>-->
 <!--                    <br>-->
 <!--                    <br>-->
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                 </form>
             </main>
         </div>

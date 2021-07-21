@@ -59,22 +59,17 @@
     <div class="masthead-content">
         <div class="container px-5">
             <main class="form-signin">
-<!--                <form name="f" th:object="${userachievement}" method="post">-->
-<!--                    <select th:field="*{achievement_id}">-->
-<!--                        <option th:each="achievement:${achievementlist}" th:value="${achievement.id}" th:text="achievement.name"/>-->
-<!--                    </select>-->
 
-                <p th:text="${userachievement.get().created}"></p>
                 <form th:action="@{/user/editachievementsprocess}" method="post" th:object="${userachievement}">
-<!--                    <h1 class="h3 mb-3 fw-normal">Add achievement</h1>-->
-                    <select  th:field="*{id}" class="form-select">
+                    <h1 class="h3 mb-3 fw-normal">Edit achievement</h1>
+                    <select  hidden th:field="*{id}" class="form-select">
                             <option th:text="'#' + ${userachievement.get().id}" th:value="${userachievement.get().id}"></option>
                     </select>
-                    <select th:field="*{user}" class="form-select">
+                    <select hidden th:field="*{user}" class="form-select">
                         <option th:text="'#' + ${userachievement.get().user}" th:value="${userachievement.get().user.getId()}"></option>
                     </select>
                     <select th:field="*{achievement}" class="form-select">
-                        <option th:text="'#' + ${userachievement.get().achievement}" th:value="${userachievement.get().achievement.getId()}"></option>
+                        <option th:text="'#' + ${userachievement.get().achievement.name}" th:value="${userachievement.get().achievement.getId()}"></option>
                     </select>
 
                     <div class="form-floating text-black-50">
@@ -166,7 +161,7 @@
 <!--                    &lt;!&ndash;                                </label>&ndash;&gt;-->
 <!--                    &lt;!&ndash;                            </div>&ndash;&gt;-->
 
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Add</button>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Edit</button>
 <!--                    &lt;!&ndash;                            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>&ndash;&gt;-->
 <!--                    <br>-->
 <!--                    <br>-->

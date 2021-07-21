@@ -47,10 +47,10 @@ public class UserAchievementController {
 
     @GetMapping("/user/showachievements")
     public String showAllUserAchievements (Model model) {
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User loggedUser = ((User)principal);
-        List<UserAchievement> userAchievementList = userAchievementService.findUsersAchievements(loggedUser.getId());
-        model.addAttribute("userAchievementList", userAchievementList);
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userRepository.findByEmail(principal.toString());
+        List<UserAchievement> userAchievementList = userAchievementRepository.findAllByUserId(user.getId());
+        model.addAttribute("userachievementlist", userAchievementList);
         return "/user/userAchievementList";
     }
 

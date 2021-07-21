@@ -52,6 +52,8 @@
 </nav>
 <!-- Header-->
 <header class="masthead text-center text-white">
+    <br>
+    <br>
     <div class="bg-circle-1 bg-circle"></div>
     <div class="bg-circle-2 bg-circle"></div>
     <div class="bg-circle-3 bg-circle"></div>
@@ -65,11 +67,12 @@
 <!--                    </select>-->
 
                 <form th:action="@{/user/confirmachievementsprocess}" method="post" enctype="multipart/form-data">
-<!--                    <h1 class="h3 mb-3 fw-normal">Add achievement</h1>-->
+                    <h1 class="h3 mb-3 fw-normal">Upload photo</h1>
                     <div class="form-floating text-black-50"><input type="file" name="evidence" accept="image/*">
                     </div>
-                    <div class="form-floating text-black-50"><input type="number" name="userachievementid" th:value="${userachievement.get().id}">
+                    <div class="bd-placeholder-img-lg" style="background-color: white"><input class="bd-placeholder-img" hidden type="number" name="userachievementid" th:value="${userachievement.get().id}">
                     </div>
+                    <br>
 <!--                    <div class="form-floating text-black-50">-->
 <!--                        <input readonly type="image"  th:field="*{evidence}" class="form-control" id="evidence" >-->
 <!--                        <label for="evidence">Evidence</label>-->
@@ -152,11 +155,14 @@
 <!--                    &lt;!&ndash;                                </label>&ndash;&gt;-->
 <!--                    &lt;!&ndash;                            </div>&ndash;&gt;-->
 
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Add</button>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Upload</button>
 <!--                    &lt;!&ndash;                            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>&ndash;&gt;-->
 <!--                    <br>-->
 <!--                    <br>-->
 <!--                    <br>-->
+                    <br>
+                    <br>
+                    <br>
                 </form>
             </main>
         </div>
