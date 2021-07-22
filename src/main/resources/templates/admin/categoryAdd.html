@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
 <!--        <link href="css/styles.css" rel="stylesheet" />-->
-        <link rel="stylesheet" th:href="@{css/styles.css}"/>
+        <link rel="stylesheet" th:href="@{/css/styles.css}"/>
         <style>
             .bd-placeholder-img {
                 font-size: 1.125rem;
@@ -40,10 +40,12 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="/signup">Sign Up</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/achievements">Achievements</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/categories">Categories</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/user/signup">Sign Up</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/user/login">Log In</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/user/achievements">Achievements</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/user/categories">Categories</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/user/achievementmanage">Manage</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/user/userranking">Ranking</a></li>
                     </ul>
                 </div>
             </div>

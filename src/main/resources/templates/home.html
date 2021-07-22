@@ -55,10 +55,10 @@
         <section id="scroll" th:each="achievement, iStat : ${randomAchievementList}">
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="img-fluid rounded-circle" src="assets/img/02.jpg" alt="..." /></div>
+                    <div class="col-lg-6" th:classappend="${iStat.odd} ? order-lg-2">
+                        <div class="p-5"><img class="img-fluid rounded-circle" th:each="category: ${achievement.categoryList}" th:src="@{'/assets/img/cat/' + ${category.id} +'.jpeg'}" alt="..." /></div>
                     </div>
-                    <div class="col-lg-6 order-lg-1">
+                    <div class="col-lg-6" th:classappend="${iStat.odd} ? order-lg-1">
                         <div class="p-5">
                             <h2 class="display-4" th:text="'#' + ${achievement.id} + ' ' + ${achievement.name}"></h2>
                             <p th:text="${achievement.description}"></p>
