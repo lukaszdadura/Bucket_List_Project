@@ -63,6 +63,7 @@
             <div class="col-lg-6 " th:classappend="${iStat.odd} ? order-lg-1">
                 <div class="p-5">
                     <h2 class="display-4" th:text="'#' + ${achievement.id} + ' ' + ${achievement.name}"></h2>
+                    <h2 class="display-6" th:each="category: ${achievement.categoryList}" th:text="${category.type} + ' worth ' + ${category.points} + ' points'"></h2>
                     <p th:text="${achievement.description}"></p>
                 </div>
             </div>

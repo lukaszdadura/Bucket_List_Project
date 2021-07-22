@@ -1,6 +1,7 @@
 package pl.lukaszdadura.bucketlistproject.controller;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -129,7 +130,7 @@ public class UserAchievementController {
         UserAchievement userAchievement1 = userAchievement.get();
         byte[] bytes = file.getBytes();
 //        Blob blob = new SerialBlob(bytes);
-        userAchievement1.setEvidence(bytes);
+        userAchievement1.setEvidence(new SerialBlob(bytes));
 //        UserAchievement userAchievement1 = (UserAchievement) userAchievement;
 //        byte[] evidenceBytes = multipartFile.getBytes();
 //        userAchievement1.setEvidence(evidenceBytes);

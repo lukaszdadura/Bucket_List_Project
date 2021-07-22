@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.sql.Blob;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -33,7 +34,7 @@ public class UserAchievement {
     @ToString.Exclude
     @Type(type="org.hibernate.type.BlobType")
     @Lob
-    private byte[] evidence;
+    private Blob evidence;
     @ManyToOne
     private User user;
     @ManyToOne

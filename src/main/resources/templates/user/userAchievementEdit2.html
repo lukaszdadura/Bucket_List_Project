@@ -69,9 +69,8 @@
                         <option th:text="'#' + ${userachievement.get().user}" th:value="${userachievement.get().user.getId()}"></option>
                     </select>
                     <select th:field="*{achievement}" class="form-select">
-                        <option th:text="'#' + ${userachievement.get().achievement.name}" th:value="${userachievement.get().achievement.getId()}"></option>
+                        <option readonly th:text="'#' + ${userachievement.get().achievement.name}" th:value="${userachievement.get().achievement.getId()}"></option>
                     </select>
-
                     <div class="form-floating text-black-50">
                         <input readonly type="date"  th:field="*{created}" th:value="${userachievement.get().getCreated()}" class="form-control" id="created" th:placeholder="${userachievement.get().created}">
                         <label for="created">Start</label>

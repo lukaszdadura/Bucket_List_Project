@@ -27,7 +27,7 @@ public class Achievement {
     @ToString.Exclude
     private Set<UserAchievement> userAchievementList;
     @ToString.Exclude
-    @OneToMany
-    private List<Category> categoryList = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.MERGE)
+    private List<Category> categoryList;
 
 }
